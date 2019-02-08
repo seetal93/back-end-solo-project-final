@@ -39,10 +39,16 @@ public class UserServiceImplementation implements UserService {
 	}
 
 	public String deleteUser(String userName) {
+		if(userName.equals("admin")) {
+			return "Unable to delete admin";
+		}
 		return repo.deleteUser(userName);
 	}
 
 	public String updateUser(String userName, String user) {
+		if(userName.equals("admin")) {
+			return "Unable to update admin";
+		}
 		return repo.updateUser(userName, user);
 	}
 }
